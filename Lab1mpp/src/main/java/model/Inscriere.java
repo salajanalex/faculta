@@ -52,7 +52,8 @@ public class Inscriere {
 
     @Override
     public String toString() {
-        return super.toString();
+        String s = this.getId() + " "+ this.getCapacitate()+ " " +this.getNume()+ " " + this.getEchipa();
+        return s;
     }
 
 //    public void printInscriere(Inscriere inscriere){

@@ -12,27 +12,46 @@ class StartApp{
     public static void main(String[] args) {
         UserRepo userRepo = new UserRepo();
         ArrayList<User> userList= new ArrayList<User>();
+
+        User usr = new User("Marceo","Popoviciu");
+
+        /**
+         * List all users from DB (DB -> Repo -> View)
+         */
         userRepo.setUserRepo();
         userList = userRepo.getUserRepo();
         for (User user:userList ) {
             System.out.println(user.toString());
         }
-    } 
+
+        /**
+         * find by username
+         */
+      //  userRepo.findUserByUsername("alex");
+
+        /**
+         * add new User
+         */
+      //  userRepo.addUser(usr);
+
+
+        /**
+         * delete an user from DB
+         */
+       // userRepo.deleteUser(usr);
+
+
+        /**
+         * List all users from Repo (Repo -> view)
+         */
+        userList = userRepo.getUserRepo();
+        for (User user:userList ) {
+            System.out.println(user.toString());
+        }
 
 
 
+    }
 
-//    public static void main(String args[]){
-//        DBConnection con = new DBConnection();
-//        Connection connection = con.getConnection();
-//
-//        try{
-//            Statement stmt=connection.createStatement();
-//            ResultSet rs=stmt.executeQuery("select * from inscriere");
-//            while(rs.next())
-//                System.out.println(rs.getInt(1)+"  "+rs.getInt(2)+"  "+rs.getString(3)+"  "+rs.getString(4));
-//            connection.close();
-//        }catch(Exception e){ System.out.println(e);}
-//    }
 
 }

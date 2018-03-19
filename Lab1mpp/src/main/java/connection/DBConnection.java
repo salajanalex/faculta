@@ -14,10 +14,8 @@ public class DBConnection{
      * returns the connection tot the DB
      * @return Connection
      */
-//    public Connection DBConnection(){
-//        Connection con = getConnection();
-//        return con;
-//    }
+
+
     public Connection getConnection() {
         dbConfig.setConfiguration("bd.config");
 
