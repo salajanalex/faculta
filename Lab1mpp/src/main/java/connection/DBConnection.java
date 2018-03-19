@@ -7,15 +7,19 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class DBConnection{
+    public DBConfig dbConfig = new DBConfig();
+
 
     /**
      * returns the connection tot the DB
-     * @return connection
+     * @return Connection
      */
-    public Connection getConnection(String configFile) {
-        DBConfig dbConfig;
-        dbConfig = new DBConfig();
-        dbConfig.setConfiguration(configFile);
+//    public Connection DBConnection(){
+//        Connection con = getConnection();
+//        return con;
+//    }
+    public Connection getConnection() {
+        dbConfig.setConfiguration("bd.config");
 
        Connection connection = null;
         try {
