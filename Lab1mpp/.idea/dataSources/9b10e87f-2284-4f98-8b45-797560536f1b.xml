@@ -2,33 +2,33 @@
 <dataSource name="motocross@localhost">
   <database-model serializer="dbm" rdbms="MYSQL" format-version="4.7">
     <root id="1">
-      <DefaultCasing>mixed/mixed</DefaultCasing>
+      <DefaultCasing>lower/lower</DefaultCasing>
     </root>
-    <schema id="2" parent="1" name="crud">
-      <Collation>latin1_swedish_ci</Collation>
-    </schema>
-    <schema id="3" parent="1" name="gymapp">
-      <Collation>latin1_swedish_ci</Collation>
-    </schema>
-    <schema id="4" parent="1" name="information_schema">
+    <schema id="2" parent="1" name="information_schema">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="5" parent="1" name="motocross">
+    <schema id="3" parent="1" name="motocross">
       <Current>1</Current>
       <Visible>1</Visible>
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="6" parent="1" name="mysql">
-      <Collation>latin1_swedish_ci</Collation>
+    <schema id="4" parent="1" name="mysql">
+      <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="7" parent="1" name="performance_schema">
+    <schema id="5" parent="1" name="news">
+      <Collation>utf8_general_ci</Collation>
+    </schema>
+    <schema id="6" parent="1" name="performance_schema">
+      <Collation>utf8_general_ci</Collation>
+    </schema>
+    <schema id="7" parent="1" name="sakila">
       <Collation>utf8_general_ci</Collation>
     </schema>
     <schema id="8" parent="1" name="sys">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="9" parent="1" name="test">
-      <Collation>latin1_swedish_ci</Collation>
+    <schema id="9" parent="1" name="world">
+      <Collation>utf8_general_ci</Collation>
     </schema>
     <collation id="10" parent="1" name="armscii8_bin">
       <Charset>armscii8</Charset>
@@ -918,64 +918,135 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="232" parent="5" name="inscriere">
+    <table id="232" parent="3" name="cursa">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="233" parent="5" name="user">
+    <table id="233" parent="3" name="cursa_participant">
       <Engine>InnoDB</Engine>
     </table>
-    <column id="234" parent="232" name="id">
+    <table id="234" parent="3" name="participant">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="235" parent="3" name="user">
+      <Engine>InnoDB</Engine>
+    </table>
+    <column id="236" parent="232" name="idCursa">
       <Position>1</Position>
-      <DataType>int(11)|0</DataType>
+      <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="235" parent="232" name="capacitate">
+    <column id="237" parent="232" name="name">
       <Position>2</Position>
-      <DataType>int(11)|0</DataType>
+      <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="236" parent="232" name="nume">
+    <column id="238" parent="232" name="capacity">
       <Position>3</Position>
-      <DataType>varchar(45)|0</DataType>
+      <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="237" parent="232" name="echipa">
-      <Position>4</Position>
-      <DataType>varchar(45)|0</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="238" parent="232" name="PRIMARY">
+    <key id="239" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
+      <ColNames>idCursa</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="239" parent="233" name="id">
+    <column id="240" parent="233" name="idCursaParticipant">
       <Position>1</Position>
-      <DataType>int(11)|0</DataType>
+      <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="240" parent="233" name="username">
+    <column id="241" parent="233" name="idCursa">
       <Position>2</Position>
-      <DataType>varchar(45)|0</DataType>
+      <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="241" parent="233" name="password">
+    <column id="242" parent="233" name="idParticipant">
       <Position>3</Position>
-      <DataType>varchar(45)|0</DataType>
+      <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="242" parent="233" name="PRIMARY">
+    <index id="243" parent="233" name="idCursa">
+      <ColNames>idCursa</ColNames>
+    </index>
+    <index id="244" parent="233" name="idParticipant">
+      <ColNames>idParticipant</ColNames>
+    </index>
+    <key id="245" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
+      <ColNames>idCursaParticipant</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="246" parent="233" name="cursa_participant_ibfk_1">
+      <ColNames>idCursa</ColNames>
+      <RefSchemaName>motocross</RefSchemaName>
+      <RefTableName>cursa</RefTableName>
+      <RefColNames>idCursa</RefColNames>
+    </foreign-key>
+    <foreign-key id="247" parent="233" name="cursa_participant_ibfk_2">
+      <ColNames>idParticipant</ColNames>
+      <RefSchemaName>motocross</RefSchemaName>
+      <RefTableName>participant</RefTableName>
+      <RefColNames>idParticipant</RefColNames>
+    </foreign-key>
+    <column id="248" parent="234" name="idParticipant">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="249" parent="234" name="name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="250" parent="234" name="team">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="251" parent="234" name="capacity">
+      <Position>4</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="252" parent="234" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idParticipant</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="253" parent="235" name="idUser">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="254" parent="235" name="password">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="255" parent="235" name="username">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="256" parent="235" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idUser</ColNames>
       <Primary>1</Primary>
     </key>
   </database-model>

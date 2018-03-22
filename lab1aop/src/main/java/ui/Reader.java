@@ -83,6 +83,15 @@ public class Reader extends Application implements Observer {
         content.setCellValueFactory(
                 new PropertyValueFactory<News, String>("content")
         );
+        /**
+         * fixing exact size of columns + not Resizable
+         */
+        id.prefWidthProperty().bind(table.widthProperty().multiply(0.2));
+        title.prefWidthProperty().bind(table.widthProperty().multiply(0.3));
+        content.prefWidthProperty().bind(table.widthProperty().multiply(0.5));
+        id.setResizable(false);
+        title.setResizable(false);
+        content.setResizable(false);
 
         table.getColumns().addAll(id, title, content);
 
@@ -96,9 +105,9 @@ public class Reader extends Application implements Observer {
         ((Group) scene.getRoot()).getChildren().addAll(vbox);
 
 
-        primaryStage.setTitle("Programmer!");
-        primaryStage.setWidth(300);
-        primaryStage.setHeight(500);
+        primaryStage.setTitle("Reader!");
+        primaryStage.setWidth(430);
+        primaryStage.setHeight(550);
         primaryStage.setScene(scene);
         primaryStage.show();
 

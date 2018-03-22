@@ -22,7 +22,7 @@ public class Newspaper extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         Button btn = new Button();
-        btn.setText("New Reader");
+        btn.setText("Create new Reader");
 
         btn.setOnAction(event -> {
             Reader reader = new Reader();
@@ -34,16 +34,16 @@ public class Newspaper extends Application {
         });
 
         Button btnAdd = new Button();
-        btnAdd.setText("Add");
+        btnAdd.setText("Add News");
 
         /**
          * Textfields unde introducem noi News
          */
         TextField title = new TextField();
-        title.setPromptText("Title");
+        title.setPromptText("News Title");
 
         TextField content = new TextField();
-        content.setPromptText("Content");
+        content.setPromptText("News Content");
 
         VBox hb = new VBox();
         hb.setSpacing(15);
