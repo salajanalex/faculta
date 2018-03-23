@@ -1,6 +1,5 @@
 package main;
 
-import model.Inscriere;
 import repository.InscriereRepo;
 
 import java.util.ArrayList;

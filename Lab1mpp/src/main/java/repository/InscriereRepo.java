@@ -1,8 +1,6 @@
 package repository;
 
-import connection.DBConfig;
 import connection.DBConnection;
-import model.Inscriere;
 
 import java.sql.*;
 import java.util.ArrayList;
