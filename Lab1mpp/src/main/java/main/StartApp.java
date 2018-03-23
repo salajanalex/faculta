@@ -1,10 +1,7 @@
 package main;
-import connection.DBConfig;
-import connection.DBConnection;
 import repository.UserRepo;
 import model.User;
 
-import java.sql.*;
 import java.util.ArrayList;
 
 class StartApp{
@@ -18,8 +15,7 @@ class StartApp{
         /**
          * List all users from DB (DB -> Repo -> View)
          */
-        userRepo.setUserRepo();
-        userList = userRepo.getUserRepo();
+        userList=userRepo.getAllUsers();
         for (User user:userList ) {
             System.out.println(user.toString());
         }
@@ -44,10 +40,6 @@ class StartApp{
         /**
          * List all users from Repo (Repo -> view)
          */
-        userList = userRepo.getUserRepo();
-        for (User user:userList ) {
-            System.out.println(user.toString());
-        }
 
 
 

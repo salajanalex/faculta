@@ -23,4 +23,9 @@ public class ParticipantServiceImplementation implements ParticipantService {
     public void addParticipant(Participant participant) {
         participantRepo.save(participant);
     }
+
+    @Override
+    public List<Participant> getAllParticipanti() {
+        return participantRepo.findAll();
+    }
 }

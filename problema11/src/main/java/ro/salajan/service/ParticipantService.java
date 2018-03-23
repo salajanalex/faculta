@@ -8,4 +8,5 @@ public interface ParticipantService {
     
     List<Participant> findParticipantByEchipa(String echipa);
     void addParticipant(Participant participant);
+    List<Participant> getAllParticipanti();
 }
