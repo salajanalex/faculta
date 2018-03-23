@@ -70,5 +70,13 @@ public class Participant {
         return Objects.hash(id, name, team, capacity);
     }
 
-    
+    @Override
+    public String toString() {
+        return "Participant{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", team='" + team + '\'' +
+                ", capacity=" + capacity +
+                '}';
+    }
 }
