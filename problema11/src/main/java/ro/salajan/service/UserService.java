@@ -1,4 +1,4 @@
-package service;
+package ro.salajan.service;
 
 import ro.salajan.model.User;
 

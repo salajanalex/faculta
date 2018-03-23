@@ -1,10 +1,10 @@
-package service.impl;
+package ro.salajan.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ro.salajan.model.User;
 import ro.salajan.repository.UserRepo;
-import service.UserService;
+import ro.salajan.service.UserService;
 
 import java.util.List;
 

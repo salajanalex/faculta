@@ -21,7 +21,7 @@ import java.util.Properties;
 @ComponentScan("ro.salajan")
 @PropertySource("classpath:application.properties")
 @EnableJpaRepositories("ro.salajan")
-public class SpringConfig {
+public class WebAppConfig {
     private static final String PROPERTY_NAME_DATABASE_DRIVER                = "db.driver";
     private static final String PROPERTY_NAME_DATABASE_PASSWORD              = "db.password";
     private static final String PROPERTY_NAME_DATABASE_URL                   = "db.url";
