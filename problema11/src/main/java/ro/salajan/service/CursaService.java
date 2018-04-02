@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CursaService {
     List<Cursa> getAllCurse();
+    Cursa getCursaById(int id);
+    void addCursa(Cursa cursa);
 }

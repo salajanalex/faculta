@@ -42,7 +42,7 @@ public class CrudTest {
 
     @Test
     public void testCreatee() {
-       Participant part1 = new Participant("sava", "Honda", 150, 2);
+       Participant part1 = new Participant("sava", "Honda", 150);
         part1 = repo1.save(part1);
         assertNotNull(part1.getNume());
 
@@ -65,11 +65,11 @@ public class CrudTest {
     public void testCreateCursa2() {
         Cursa cursa = new Cursa("cursa", 4);
         cursa = repo2.save(cursa);
-        Participant part3 = new Participant("alex","Porshe",150,3);
+        Participant part3 = new Participant("alex","Porshe",150);
         part3 = repo1.save(part3);
         cursa.addParticipant(part3);
         cursa = repo2.save(cursa);
-        assertNotNull(repo2.findOne(part3.getId()));
+        assertNotNull(repo2.findOne(cursa.getId()));
 
     }
 

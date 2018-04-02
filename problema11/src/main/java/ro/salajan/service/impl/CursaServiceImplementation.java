@@ -18,4 +18,14 @@ public class CursaServiceImplementation implements CursaService{
     public List<Cursa> getAllCurse() {
         return cursaRepo.findAll();
     }
+
+    @Override
+    public Cursa getCursaById(int id) {
+        return cursaRepo.findById(id);
+    }
+
+    @Override
+    public void addCursa(Cursa cursa) {
+         cursaRepo.save(cursa);
+    }
 }

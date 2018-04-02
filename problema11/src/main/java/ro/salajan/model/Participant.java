@@ -29,7 +29,7 @@ public class Participant implements Serializable{
 
    }
 
-    public Participant(String nume, String echipa, int capacitate, int idcursa) {
+    public Participant(String nume, String echipa, int capacitate) {
         this.nume = nume;
         this.echipa = echipa;
         this.capacitate = capacitate;
