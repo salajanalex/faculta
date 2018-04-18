@@ -127,20 +127,15 @@
 </head>
 <body>
 
-<div style="text-align: center;">
-    <div style="width: 500px; margin: 0 auto; background: #000; color: #fff;">
+<%--<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>--%>
 
-<h2>Login pentru a intra in aplicatie</h2>
+<div id="id01" style="width:40%; margin:0 auto;" >
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-    </div>
-</div>
-<div id="id01" class="modal">
-
-    <form class="modal-content animate" action="/action_page.php">
+    <form class="modal-content animate" action="/curse" method="get">
         <div class="imgcontainer">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <img src="img_avatar2.png" alt="Avatar" class="avatar">
+            <%--<img src="img_avatar2.png" alt="Avatar" class="avatar">--%>
+            <h2>Login</h2>
         </div>
 
         <div class="container">
@@ -152,7 +147,7 @@
 
             <button type="submit">Login</button>
             <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
+                <input type="checkbox"  name="remember"> Remember me
             </label>
         </div>
 

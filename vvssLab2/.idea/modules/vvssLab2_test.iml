@@ -12,6 +12,7 @@
     <orderEntry type="module" module-name="vvssLab2_main" />
     <orderEntry type="library" name="Gradle: junit:junit:4.12" level="project" />
     <orderEntry type="library" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="module" module-name="VVSS_2017_2018_GE" scope="TEST" />
   </component>
   <component name="TestModuleProperties" production-module="vvssLab2_main" />
 </module>

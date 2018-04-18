@@ -1,4 +1,6 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ page import="java.util.Random"%>
+
 
 <%--<c:forEach items="${ion}" var="cur">--%>
     <%--${cur.nume}<br>--%>
@@ -100,6 +102,14 @@
     </c:forEach>
 </table>
 
+    <%--//incercare de session--%>
+  <%--<%  public void doGet(HttpServletRequest request, HttpServletResponse response) {--%>
+
+    <%--HttpSession session = request.getSession();--%>
+    <%--String uname = (String)request.getAttribute("uname");--%>
+    <%--session.setAttribute("uname", uname);--%>
+    <%--}--%>
+    <%--%>--%>
 <h3>Cauta participant dupa echipa:</h3>
 <form action="/partbyechipa" method="get">
     <p>Numele echipei <input type="text" name="echipa"><p/>
