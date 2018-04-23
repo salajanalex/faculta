@@ -1,15 +1,35 @@
+<%@page language="java" session="true" %>
+
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ page import="java.util.Random"%>
 
 
-<%--<c:forEach items="${ion}" var="cur">--%>
-    <%--${cur.nume}<br>--%>
-<%--</c:forEach>--%>
+<c:forEach items="${ion}" var="cur">
+    ${cur.nume}<br>
+</c:forEach>
+
+<%
+    String user = (String)request.getSession().getAttribute("uname");
+    String user1 = (String) session.getAttribute("uname");
+
+    if (user1==null){
+        String redirectURL = "login";
+        response.sendRedirect(redirectURL);
+    }
+%>
+
+<script type="text/javascript" src="client.js"></script>
 
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+
+    <script src="./js/sockjs-0.3.4.js"></script>
+    <script src="./js/stomp.js"></script>
+    <script type="text/javascript">
+
+    </script>
 
     <style>
 
@@ -28,7 +48,7 @@
 
         #div {
             position: absolute;
-            width: 300px;
+            /*width: 300px;*/
             height: 620px;
             z-index: 15;
             top: 30%;
@@ -79,10 +99,20 @@
             width: auto;
         }
     </style>
+
 </head>
+
 <body background="https://i.pinimg.com/originals/70/67/75/70677500e847add7d36742979d770e68.jpg">
+<%--<div style="float: left">--%>
+<%--<jsp:include page="header.jsp"></jsp:include>--%>
+<%--</div>--%>
+
+<div align="right">
+    <jsp:include page="header.jsp"></jsp:include>
+</div>
+
 <h2 id="title">Inscrieri<br/>Motocross<br/>2018</h2>
-<div id="div">
+<div id="div" >
 <h2>Lista curse disponibile</h2>
 
 <table>

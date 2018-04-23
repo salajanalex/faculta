@@ -1,14 +1,20 @@
 package ro.salajan.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ro.salajan.dto.ParticipantDTO;
+import ro.salajan.dto.SocketMessage;
 import ro.salajan.model.Cursa;
 import ro.salajan.model.Participant;
 import ro.salajan.service.CursaService;
 import ro.salajan.service.ParticipantService;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -64,5 +70,17 @@ public class ParticipantController {
         model.addAttribute("cursaList",cursaList);
         return "participanti";
     }
+
+    @MessageMapping("/curse")
+    @SendTo("/topic/messages")
+    public SocketMessage send(ParticipantDTO participantDTO) throws Exception {
+        Cursa cursa = cursaService.getCursaById(participantDTO.getIdCursa());
+        Participant participant = new Participant(participantDTO.getNume(), participantDTO.getEchipa(), participantDTO.getCapacitate());
+        participantService.addParticipant(participant);   //adauga participant nou
+        cursa.addParticipant(participant);
+        cursa=cursaService.addCursa(cursa);  //aici face save, ca sa observe hibernate ca am adaugat
+        return new SocketMessage(participantDTO.getIdCursa(), cursa.getListaParticipant().size());
+    }
+
 
 }

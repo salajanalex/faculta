@@ -1,6 +1,11 @@
+<%@page language="java" session="true" %>
+
 <!DOCTYPE html>
 <html>
 <head>
+
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {font-family: Arial, Helvetica, sans-serif;}
@@ -124,28 +129,45 @@
             }
         }
     </style>
+
+    <%
+        String loginfail = (String)session.getAttribute("loginfail");
+        if (loginfail=="loginfail"){ %>
+    <script type="text/javascript">
+        window.onload = function(){
+            alert('LogIn failed. Try again.');
+        }
+    </script><%
+    }
+
+    %>
+
+
 </head>
 <body>
+
 
 <%--<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>--%>
 
 <div id="id01" style="width:40%; margin:0 auto;" >
 
-    <form class="modal-content animate" action="/curse" method="get">
+    <form class="modal-content animate" action="/auth" method="get">
         <div class="imgcontainer">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <%--<img src="img_avatar2.png" alt="Avatar" class="avatar">--%>
+            <%--<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>--%>
+            <%--&lt;%&ndash;<img src="img_avatar2.png" alt="Avatar" class="avatar">&ndash;%&gt;--%>
             <h2>Login</h2>
         </div>
 
         <div class="container">
-            <label for="uname"><b>Username</b></label>
+            <label for="usname"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="uname" required>
 
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>
 
+
             <button type="submit">Login</button>
+
             <label>
                 <input type="checkbox"  name="remember"> Remember me
             </label>

@@ -25,7 +25,7 @@ public class CursaServiceImplementation implements CursaService{
     }
 
     @Override
-    public void addCursa(Cursa cursa) {
-         cursaRepo.save(cursa);
+    public Cursa addCursa(Cursa cursa) {
+         return cursaRepo.save(cursa);
     }
 }

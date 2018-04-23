@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <%
+    session.setAttribute("loginfail", "loginfail");
+    response.sendRedirect("login");
+    %>
 
 </head>
 <body>
-<h2>Login Failed.</h2>
-<a href="login">try again</a>
+
 </body>
 </html>
 

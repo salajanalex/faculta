@@ -3,17 +3,22 @@
 <%--<c:forEach items="${participantList}" var="list">--%>
 <%--${list.nume}<br>--%>
 <%--</c:forEach>--%>
+<%
+    String user = (String)request.getSession().getAttribute("uname");
+    String user1 = (String) session.getAttribute("uname");
+
+    if (user1==null){
+        String redirectURL = "login";
+        response.sendRedirect(redirectURL);
+    }
+%>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript" src="functions.js"></script>
-    <script type="text/javascript">addPopup()</script>
-    <script>
-    function addPopup() {
-    window.alert("Participantul a fost adaugat cu succes!")
-    }
-    </script>
+    <script src="./js/sockjs-0.3.4.js"></script>
+    <script src="./js/stomp.js"></script>
+    <script type="text/javascript" src="client.js"></script>
 
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
     <style>
@@ -33,7 +38,7 @@
 
         #div {
             position: absolute;
-            width: 300px;
+            /*width: 300px;*/
             height: 730px;
             z-index: 15;
             top: 22%;
@@ -88,6 +93,11 @@
 </head>
 
 <body background="https://i.pinimg.com/originals/70/67/75/70677500e847add7d36742979d770e68.jpg">
+
+<div align="right">
+    <jsp:include page="header.jsp"></jsp:include>
+</div>
+
 <div id="div">
 
 <h2>Lista Participantilor dupa echipa ${echipa}</h2>
@@ -112,19 +122,19 @@
 
 <h3>Adaugare participant nou</h3>
 <form action="/participanti/add" method="post">
-    <p>Nume: <input type="text" name="nume" placeholder="Nume complet participant"></p>
-    <p>Echipa: <input type="text" name="echipa" placeholder="Echipa participantului"></p>
-    <p>Capacitate: <select name="capacitate">
+    <p>Nume: <input type="text" name="nume" id="nume" placeholder="Nume complet participant"></p>
+    <p>Echipa: <input type="text" name="echipa" id="echipa" placeholder="Echipa participantului"></p>
+    <p>Capacitate: <select name="capacitate" id="capacitate">
                         <option value="500">500 cm3</option>
                         <option value="750">750 cm3</option>
                         <option value="1000">1000 cm3</option>
                     </select></p>
-    <p>Alegeti Cursa: </p> <select name="idcursa">
+    <p>Alegeti Cursa: </p> <select name="idcursa" id="idcursa">
     <c:forEach items="${cursaList}" var="cursa">
         <option value="${cursa.id}">${cursa.nume}  ${cursa.capacitate}</option>
     </c:forEach>
 </select>
-    <button class="pure-button pure-button-primary" onclick="addPopup()" type="submit">Adauga!</button><br>
+    <button class="pure-button pure-button-primary" onclick="sendMessage()" type="button">Adauga!</button><br>
 </form>
 
 <br/>
