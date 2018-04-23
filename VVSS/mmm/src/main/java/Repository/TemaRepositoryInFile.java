@@ -16,13 +16,19 @@ public class TemaRepositoryInFile extends AbstractRepositoryInFile<Tema,Integer>
     @Override
     public void createInstance(String linie) {
         String[] atribute=linie.split("[|]");
+//        if(atribute.length!=3)
+//        {
+//            System.err.println("Linie invalida"+linie);
+//            return;
+//        }
+
         if(atribute.length!=3)
         {
-            System.err.println("Linie invalida"+linie);
-            return;
+            throw  new RepositoryException("Input line does not match!");
         }
         try
         {
+
             int id=Integer.parseInt(atribute[0]);
             int deadline=Integer.parseInt(atribute[2]);
             String descriere=atribute[1];
@@ -31,7 +37,7 @@ public class TemaRepositoryInFile extends AbstractRepositoryInFile<Tema,Integer>
         }
         catch (NumberFormatException numberException)
         {
-            System.err.println(numberException);
+            throw  new RepositoryException("Create instance Error!");
         }
     }
 
@@ -41,9 +47,14 @@ public class TemaRepositoryInFile extends AbstractRepositoryInFile<Tema,Integer>
         try
         {
             writer.write("" + tema.getID() + '|' + tema.getDescriere() + '|' + tema.getDeadline() + '\n');
-        }catch (IOException e)
+        }catch (Exception e)
         {
-            System.err.println("Can not write to file\n");
+            //System.err.println("Can not write to file\n");
+            throw  new RepositoryException("WriteInstance Error!");
         }
     }
+
+
+
+
 }

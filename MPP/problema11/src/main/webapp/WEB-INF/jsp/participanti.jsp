@@ -16,9 +16,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="./js/sockjs-0.3.4.js"></script>
-    <script src="./js/stomp.js"></script>
-    <script type="text/javascript" src="client.js"></script>
+    <script src="/webjars/sockjs-client/1.0.2/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/2.3.3/stomp.min.js"></script>
+    <script src="/client.js"></script>
 
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
     <style>
@@ -92,7 +92,7 @@
     </style>
 </head>
 
-<body background="https://i.pinimg.com/originals/70/67/75/70677500e847add7d36742979d770e68.jpg">
+<body onload="connect()" background="https://i.pinimg.com/originals/70/67/75/70677500e847add7d36742979d770e68.jpg">
 
 <div align="right">
     <jsp:include page="header.jsp"></jsp:include>

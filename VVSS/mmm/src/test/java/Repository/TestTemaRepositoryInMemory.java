@@ -17,9 +17,9 @@ public class TestTemaRepositoryInMemory {
 	public void testConstructor() {
 		ValidatorTema validatorTema = new ValidatorTema();
 		TemaRepositoryInMemory temaRepo=new TemaRepositoryInMemory(validatorTema);
-		
+
 		temaRepo.add(new Tema(1, "Tema1", 3));
-		
+
 		assertEquals("Tema1", temaRepo.findOne(1).getDescriere());
 	}
 

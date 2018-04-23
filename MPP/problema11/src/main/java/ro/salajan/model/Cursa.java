@@ -21,7 +21,8 @@ public class Cursa implements Serializable{
     @JoinTable(name="cursa_participant",
             joinColumns = { @JoinColumn(name = "idCursa") },
             inverseJoinColumns = { @JoinColumn(name = "idParticipant") })
-    @ManyToMany
+
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Participant> listaParticipant;
 
     public Cursa(){
