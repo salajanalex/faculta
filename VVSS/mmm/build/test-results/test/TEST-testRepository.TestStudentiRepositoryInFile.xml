@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testRepository.TestStudentiRepositoryInFile" tests="7" skipped="0" failures="0" errors="0" timestamp="2018-04-03T11:26:56" hostname="Robert" time="0.032">
+  <properties/>
+  <testcase name="testAddException" classname="testRepository.TestStudentiRepositoryInFile" time="0.0"/>
+  <testcase name="testUpdateException" classname="testRepository.TestStudentiRepositoryInFile" time="0.016"/>
+  <testcase name="testCreateInstance" classname="testRepository.TestStudentiRepositoryInFile" time="0.0"/>
+  <testcase name="testFindOneException" classname="testRepository.TestStudentiRepositoryInFile" time="0.0"/>
+  <testcase name="testDelete" classname="testRepository.TestStudentiRepositoryInFile" time="0.0"/>
+  <testcase name="testUpdate" classname="testRepository.TestStudentiRepositoryInFile" time="0.0"/>
+  <testcase name="testDeleteException" classname="testRepository.TestStudentiRepositoryInFile" time="0.016"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

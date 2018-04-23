@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testRepository.TestNotaRepositoryXML" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-04-03T11:26:56" hostname="Robert" time="0.093">
+  <properties/>
+  <testcase name="testCreateInstance" classname="testRepository.TestNotaRepositoryXML" time="0.093"/>
+  <system-out><![CDATA[File saved!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
