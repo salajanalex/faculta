@@ -19,8 +19,7 @@ public class NotaRepositoryInFile extends AbstractRepositoryInFile<Nota,Pair<Int
     public void createInstance(String linie) {
         String[] atribute = linie.split("[|]");
         if (atribute.length != 4) {
-            System.err.println("Linie incorecta" + linie);
-            return;
+            throw  new RepositoryException("Input line does not match!");
         }
         try
         {
@@ -33,7 +32,7 @@ public class NotaRepositoryInFile extends AbstractRepositoryInFile<Nota,Pair<Int
             Nota nota = new Nota(student, tema, valoare,saptPredare);
             super.add(nota);
         } catch (NumberFormatException numberEx) {
-            System.err.println(numberEx);
+            throw  new RepositoryException("Create instance Error!");
         }
     }
 
@@ -43,9 +42,9 @@ public class NotaRepositoryInFile extends AbstractRepositoryInFile<Nota,Pair<Int
         try
         {
             writer.write("" + nota.getStudent().getID() + "|" + nota.getTema().getID() + "|" + nota.getValoare() +"|"+nota.getSaptPredare()+ "\n");
-        } catch (IOException e)
+        } catch (Exception e)
         {
-            System.err.println("Can not write to file");
+            throw  new RepositoryException("WriteInstance Error!");
         }
     }
 }

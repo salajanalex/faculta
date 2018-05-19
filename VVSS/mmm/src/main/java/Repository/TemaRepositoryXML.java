@@ -48,8 +48,8 @@ public class TemaRepositoryXML  extends AbstractRepositoryXML<Tema,Integer>{
                 rootElement.appendChild(temaElement);
             });
             super.saveDocument(doc);
-        } catch (ParserConfigurationException pce) {
-            pce.printStackTrace();
+        } catch (Exception e) {
+            throw  new RepositoryException("Can't write to XML file\n");
         }
     }
 }

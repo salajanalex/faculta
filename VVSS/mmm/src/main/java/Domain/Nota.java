@@ -52,9 +52,14 @@ public class Nota implements HasID<Pair<Integer,Integer>>
 
     }
 
+
     @Override
     public String toString()
     {
         return student.getNume()+" "+tema.getDescriere()+" "+valoare;
+    }
+
+    public void setValoare(int valoare) {
+        this.valoare = valoare;
     }
 }

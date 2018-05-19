@@ -20,8 +20,7 @@ public class UserRepositoryInFile extends AbstractRepositoryInFile<User,String>{
         String[] atribute=linie.split("[|]");
         if(atribute.length!=3)
         {
-            System.err.println("Linie invalida"+linie);
-            return;
+            throw  new RepositoryException("Input line does not match!");
         }
         try
         {
@@ -33,15 +32,15 @@ public class UserRepositoryInFile extends AbstractRepositoryInFile<User,String>{
         }
         catch(Exception ex)
         {
-            System.err.println(ex);
+            throw  new RepositoryException("Create instance Error!");
         }
     }
 
     public void writeInstace(BufferedWriter writer, User user) {
         try {
             writer.write("" + user.getID() + '|' + user.getPassword()+'|'+user.getRol()+'\n');
-        } catch (IOException e) {
-            System.err.println(e);
+        } catch (Exception e) {
+            throw  new RepositoryException("WriteInstance Error!");
         }
     }
 }

@@ -34,4 +34,9 @@ public class User implements HasID<String>
         this.email=email;
 
     }
+
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
 }

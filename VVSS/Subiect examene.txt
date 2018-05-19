@@ -1,0 +1,16 @@
+- se dau conditii -> dam noi cerinta / invers
+- testare blackbox dupa date date
+- Graful fluxului de control + complexitatea lui + individual paths
+- implementare cod dupa enunt / scriere enunt dupa problema implementata
+- gasire alte drumuri liniar independente, daca exista
+- mai multe drumuri si noi sa alegem multimea drumuriloe liniar independente necesare
+= minim (prin toate drumurile) (pt testarea whitebox)
+- 
+
+
+
+identificare o problema de minim 3 decizii (ex: cautare binara)
+graful fluxului de control
+
+
+acoperire totala pe drumuri/carari/ etc. -> asa alegem asa datele

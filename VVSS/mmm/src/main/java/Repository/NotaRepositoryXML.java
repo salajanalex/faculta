@@ -55,8 +55,8 @@ public class NotaRepositoryXML extends AbstractRepositoryXML<Nota,Pair<Integer,I
                 rootElement.appendChild(notaElement);
             });
             super.saveDocument(doc);
-        } catch (ParserConfigurationException pce) {
-            pce.printStackTrace();
+        } catch (Exception e) {
+            throw  new RepositoryException("Can't write to XML file\n");
         }
     }
 }
