@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module external.linked.project.id="lab1aop:main" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="lab1aop" external.system.module.type="sourceSet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="AspectJ" name="AspectJ">
+      <configuration />
+    </facet>
+  </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/../../out/production/classes" />
     <exclude-output />
@@ -9,6 +14,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: log4j:log4j:1.2.16" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: mysql:mysql-connector-java:5.1.20" level="project" />
+    <orderEntry type="library" name="lab1aop" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

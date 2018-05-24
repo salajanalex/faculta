@@ -2,8 +2,7 @@ package repository;
 
 import model.News;
 import utils.DB.DBConnection;
-import utils.ObserverPattern.Observer;
-import utils.ObserverPattern.Subject;
+import utils.aspects.observer.ChangeState;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,10 +10,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class NewsRepository extends Subject implements Repository{
+//public class NewsRepository extends Subject implements Repository{
+
+public class NewsRepository implements Repository{
     private Connection connection;
 
     /**
@@ -28,7 +27,7 @@ public class NewsRepository extends Subject implements Repository{
     /**
      * Logger
      */
-    public static final Logger LOGGER = Logger.getLogger(NewsRepository.class.getName());
+    //public static final Logger LOGGER = Logger.getLogger(NewsRepository.class.getName());
 
     /**
      *daca dai new Repo da eroare
@@ -39,6 +38,7 @@ public class NewsRepository extends Subject implements Repository{
     }
 
     @Override
+    @ChangeState
     public void addNews(News news) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO News(id, title, content) VALUES(?, ?, ?)");
@@ -51,13 +51,14 @@ public class NewsRepository extends Subject implements Repository{
             System.out.println("Exception has occured");
             System.out.println(e);
         }
-        notifyObservers();
+//        notifyObservers();
         //pt logger
-        LOGGER.log(Level.WARNING,"News added: {0}", news);
+//        LOGGER.log(Level.WARNING,"News added: {0}", news);
     }
 
 
     @Override
+    @ChangeState
     public void removeNews(int id) {
         try {
             String query = " DELETE FROM news WHERE id = ?";
@@ -68,7 +69,7 @@ public class NewsRepository extends Subject implements Repository{
             System.err.println("Got an exception!");
             System.err.println(e.getMessage());
         }
-        notifyObservers();
+        //notifyObservers();
     }
 
 

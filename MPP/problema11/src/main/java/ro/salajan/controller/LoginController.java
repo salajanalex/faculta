@@ -69,5 +69,11 @@ public class LoginController {
         }
     }
 
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public ModelAndView init(){
+        //view name append with .jsp
+        return new ModelAndView("login");
+    }
+
 
 }

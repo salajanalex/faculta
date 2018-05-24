@@ -1,5 +1,5 @@
-package utils.ObserverPattern;
-
-public interface Observer {
-    void update();
-}
+//package utils.ObserverPattern;
+//
+//public interface Observer {
+//    void update();
+//}

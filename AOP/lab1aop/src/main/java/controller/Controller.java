@@ -2,7 +2,6 @@ package controller;
 
 import model.News;
 import repository.NewsRepository;
-import utils.ObserverPattern.Observer;
 
 import java.util.logging.Logger;
 
@@ -35,12 +34,12 @@ public class Controller {
         newsRepository.removeNews(id);
     }
 
-    public void subscribe(Observer observer){
-        newsRepository.register(observer);
-    }
-
-    public void unSubscribe(Observer observer){
-        newsRepository.unregister(observer);
-    }
+//    public void subscribe(Observer observer){
+//        newsRepository.register(observer);
+//    }
+//
+//    public void unSubscribe(Observer observer){
+//        newsRepository.unregister(observer);
+//    }
 
 }

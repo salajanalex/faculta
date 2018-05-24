@@ -19,19 +19,19 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model.News;
-import utils.ObserverPattern.Observer;
 
 
 
-public class Reader extends Application implements Observer {
+public class Reader extends Application {
 
     private TableView<News> table = new TableView<>();
-    private Controller controller = new Controller();
+    private Controller controller;
     private ObservableList<News> newsObservableList;
 
-    public Reader() {
+    public Reader(Controller ctrl) {
         super();
-        controller.getNewsRepository().register(this);
+        this.controller = ctrl;
+//        controller.getNewsRepository().register(this);
     }
 
 
@@ -52,13 +52,15 @@ public class Reader extends Application implements Observer {
             controller.removeNews(news.getId());
         });
 
-        btn1.setOnAction(event -> {
-            controller.subscribe(this);
-        });
-
-        btn2.setOnAction(event -> {
-            controller.unSubscribe(this);
-        });
+//        btn1.setOnAction(event -> {
+////            controller.subscribe(this);
+//            controller.getNewsRepository().addObserver(this);
+//        });
+//
+//        btn2.setOnAction(event -> {
+////            controller.unSubscribe(this);
+//            controller.getNewsRepository().removeObserver(this);
+//        });
 
 
         StackPane root = new StackPane();
@@ -99,7 +101,8 @@ public class Reader extends Application implements Observer {
         vbox.setSpacing(5);
         vbox.setPadding(new Insets(10, 0, 0, 10));
         HBox hb = new HBox();
-        hb.getChildren().addAll(btn1, btn2, btn3);
+//        hb.getChildren().addAll(btn1, btn2, btn3);
+        hb.getChildren().addAll(btn3);
         vbox.getChildren().addAll(label, table, hb);
 
         ((Group) scene.getRoot()).getChildren().addAll(vbox);
@@ -111,12 +114,14 @@ public class Reader extends Application implements Observer {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        update();
-
+//        update();
+        refreshList();
     }
 
-    @Override
-    public void update() {
+
+//    public void update() {
+
+    public void refreshList(){
 
         table.getItems().clear();
         newsObservableList = FXCollections.observableArrayList(controller.getNewsRepository().getAllNews());

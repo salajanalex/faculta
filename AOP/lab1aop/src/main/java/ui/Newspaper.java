@@ -8,7 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import utils.ObserverPattern.Observer;
 
 public class Newspaper extends Application {
 
@@ -25,7 +24,8 @@ public class Newspaper extends Application {
         btn.setText("Create new Reader");
 
         btn.setOnAction(event -> {
-            Reader reader = new Reader();
+            Controller ctrl = new Controller();
+            Reader reader = new Reader(ctrl);
             try {
                 reader.start(new Stage());
             } catch (Exception e) {
